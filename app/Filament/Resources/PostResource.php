@@ -33,7 +33,9 @@ class PostResource extends Resource
                 RichEditor::make('paroles'),
                 Forms\Components\TextInput::make('clip'),
                 FileUpload::make('image')
-                ->directory('pochettes'),
+                ->directory('pochettes')
+                ->imageResizeTargetHeight('1290')
+                ->imageResizeTargetWidth('2236'),
                 FileUpload::make('couv')
                 ->directory('couvertures'),
             ]);
