@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 
 class NavController extends Controller
@@ -25,14 +26,17 @@ class NavController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+        $comments = Comment::where('post_id', '=', $post->id)->get();
         $clip = $post->clip;
         $genre = $post->genre;
         $paroles = $post->paroles;
-        //dd($genre);
+        $id = $post->id;
+        // dd($post->id);
         $bandalikes = Post::where('genre', "=", $genre)->take(3)->get();
         $alikes = $bandalikes->reject($post); //pour éviter de proposer le post en cours de lecture dans la rubrique "vous aimerez peut-être aussi"
-        // dd($alikes);
-        return view('groupe', compact('post', 'clip', 'paroles', 'alikes'));
+        $comments = json_decode($comments, true);
+        // dd($comments);
+        return view('groupe', compact('post', 'comments', 'clip', 'id', 'paroles', 'alikes'));
     }
 
     public function liste($groupe)

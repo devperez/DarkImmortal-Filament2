@@ -6,6 +6,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
 <link href="{{ asset('css/Hover-master/css/hover.css') }}" rel="stylesheet">
+@livewireStyles
 
 <div class="couv" style="background-image: url('{{ asset('storage/'. $post->couv) }}')"></div>
     <div class=container-fluid>
@@ -34,15 +35,24 @@
             </div>
             @endisset
         </div>
-    <div id="disqus_thread"></div>
+    {{-- <div id="disqus_thread"></div> --}}
 </div>
 
 
 
 
+<livewire:comments :post="$post" />
 
 
-
+@foreach ($comments as $comment )
+<div class="rounded border sgadow p-3 my-2">
+    <div class="flex justify-start my-2">
+        <p class="font-bold text-lg">{{ $comment['author'] }}</p>
+        <p class="mx-3 py-1 text-xs text-gray-500 font-semibold">{{ $comment['body'] }}</p>
+    </div>
+</div>
+    
+@endforeach
 
 
     
@@ -76,8 +86,7 @@
         </div>
     </div>
 </div>
-
-<script id="dsq-count-scr" src="//darkimmortal.disqus.com/count.js" async></script>
+{{-- <script id="dsq-count-scr" src="//darkimmortal.disqus.com/count.js" async></script>
 
 <script>
     /**
@@ -96,7 +105,7 @@
     (d.head || d.body).appendChild(s);
     })();
 
-</script>
+</script> --}}
 
 
 
@@ -104,6 +113,6 @@
 
 
 
-
+@livewireScripts
 @endsection
 
