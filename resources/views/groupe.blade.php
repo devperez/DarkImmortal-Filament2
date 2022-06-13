@@ -45,12 +45,14 @@
 
 
 @foreach ($comments as $comment )
-<div class="rounded border sgadow p-3 my-2">
-    <div class="flex justify-start my-2">
-        <p class="font-bold text-lg">{{ $comment['author'] }}</p>
-        <p class="mx-3 py-1 text-xs text-gray-500 font-semibold">{{ $comment['body'] }}</p>
+@if($comment['check'] == 1)
+    <div class="rounded border sgadow p-3 my-2">
+        <div class="flex justify-start my-2">
+            <p class="font-bold text-lg">{{ $comment['author'] }}</p>
+            <p class="mx-3 py-1 text-xs text-gray-500 font-semibold">{{ $comment['body'] }}</p>
+        </div>
     </div>
-</div>
+    @endif
     
 @endforeach
 
