@@ -42,12 +42,13 @@
 
 
 <livewire:comments :post="$post" />
+<p class="ml-3 pt-3">NB: les commentaires sont modérés à priori et n'apparaissent qu'une fois validés.</p>
 
 
 @foreach ($comments as $comment )
 @if($comment['check'] == 1)
-    <div class="rounded border sgadow p-3 my-2">
-        <div class="flex justify-start my-2">
+    <div class="rounded shadow  m-3 p-2 w-1/2" style="border:solid 1px rgb(255,7,110); width:35em;">
+        <div class="flex justify-self-center my-2">
             <p class="font-bold text-lg">{{ $comment['author'] }}</p>
             <p class="mx-3 py-1 text-xs text-gray-500 font-semibold">{{ $comment['body'] }}</p>
         </div>

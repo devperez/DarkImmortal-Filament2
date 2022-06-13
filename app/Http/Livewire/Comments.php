@@ -41,12 +41,12 @@ class Comments extends Component
 
     public function render()
     {
-        $comments = Comment::where('post_id', '=', $this->post->id)->get();
-        $comments = json_decode($comments, true);
+        // $comments = Comment::where('post_id', '=', $this->post->id)->where('check', '=', '1')->get();
+        // $comments = json_decode($comments, true);
 
         // dd($comments);
         // $comments = Comment::where('post_id', '=', $this->post->id);
         // dd($this->post->id);
-        return view('livewire.comments', compact('comments'));
+        return view('livewire.comments');
     }
 }

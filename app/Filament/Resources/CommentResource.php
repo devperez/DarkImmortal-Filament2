@@ -38,6 +38,7 @@ class CommentResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('author'),
                 TextColumn::make('body'),
                 BooleanColumn::make('check'),
                 TextColumn::make('post.groupe'),
