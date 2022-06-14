@@ -38,7 +38,9 @@ class Comments extends Component
 
         $comment = Comment::latest()->first();
         //dd($comment);
+
         event(new CommentCreated($comment));
+        
         $this->author = "";
         $this->body = "";
     }
