@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+    
 
         <title>DarkImmortal</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
@@ -13,8 +14,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Roboto&display=swap" rel="stylesheet">
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
-	<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+	    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+	    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
         
     </head>
     <body>
@@ -50,12 +51,12 @@
                     </ul>
                 </li>
                 <div class="container-fluid desktopmenu">
-                    <p>Derniers morceaux écoutés :</p>
-                    <ul>
+                    <p>Derniers morceaux scrobblés sur Lastfm :</p>
+                    <div class="lastfm_container">
                     @foreach ($response as $item)
                         <li>{{ $item["artist"]["#text"] }} : {{ $item["album"]["#text"] }} | {{ $item["name"] }}</li>
                     @endforeach
-                    </ul>
+                    </div>
                         
                     {{-- <ul style="display:flex; justify-content:center;">
                         <li class="customli"><a href="{{ route('groupes') }}">Groupes</a></li>

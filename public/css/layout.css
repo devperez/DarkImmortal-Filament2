@@ -213,3 +213,24 @@ div.item {
     /* margin: 0 auto; */
 }
 
+/*page index layout du widget lasfm */
+
+.lastfm_container {
+    display: grid; 
+    grid-template-columns: 50% 50%; 
+    grid-template-rows: min-content min-content; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+    ". ."
+    ". ."; 
+    justify-content: center; 
+    justify-items: stretch;
+    color: #fff;
+}
+
+.lastfm_container li {
+    background-color: #ff076e;
+    border-radius: 15px;
+    padding: 10px;
+}
+
