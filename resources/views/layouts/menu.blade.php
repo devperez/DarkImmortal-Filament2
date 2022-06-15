@@ -22,9 +22,15 @@
         <div class="container-fluid">
 	        <div class="row">
 	        	<div class="col-md-12 col-sm-6">
-        	    		<a href=" {{ route('groupes') }}"><h1 class="hvr-underline-from-center sitename">DARKIMMORTAL</h1></a>
-			</div>
-		</div>
+       	   	        <a href=" {{ route('groupes') }}"><h1 class="hvr-underline-from-center sitename">DARKIMMORTAL</h1></a>
+                    <ul class="desktop_menu">
+                        <li class="customli"><a href="{{ route('groupes') }}">Groupes</a></li>
+                        <li class="customli"><a href="{{ route('search') }}">Chercher un groupe</a></li>
+                        <li class="customli"><a href="{{ route('random') }}" title="un groupe au hasard">Roulette russe</a></li>
+                        <li class="customli"><a href="{{ route('about') }}">À propos</a></li>
+                    </ul>
+	    		</div>
+		    </div>
         </div>
     <nav class="navbar navbar-light bg-grey">
         <div class="container-fluid">
@@ -33,7 +39,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:150px; color:black;">Menu</a>
+                    <a class="mobile_menu nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:150px; color:black;">Menu</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href=" {{ route('black') }}">Black</a></li>
                         <li><a class="dropdown-item" href=" {{ route('death') }}">Death</a></li>
@@ -50,21 +56,16 @@
                         </div>
                     </ul>
                 </li>
+                @isset($response)
                 <div class="container-fluid desktopmenu">
-                    <p>Derniers morceaux scrobblés sur Lastfm :</p>
+                    <p>Mes 10 derniers scrobbles sur Lastfm :</p>
                     <div class="lastfm_container">
                     @foreach ($response as $item)
                         <li>{{ $item["artist"]["#text"] }} : {{ $item["album"]["#text"] }} | {{ $item["name"] }}</li>
                     @endforeach
-                    </div>
-                        
-                    {{-- <ul style="display:flex; justify-content:center;">
-                        <li class="customli"><a href="{{ route('groupes') }}">Groupes</a></li>
-                        <li class="customli"><a href="{{ route('search') }}">Chercher un groupe</a></li>
-                        <li class="customli"><a href="{{ route('random') }}" title="un groupe au hasard">Roulette russe</a></li>
-                        <li class="customli"><a href="{{ route('about') }}">À propos</a></li>
-                    </ul> --}}
+                    </div>    
                 </div>
+                @endisset
             </div>
         </div>
     </nav>
