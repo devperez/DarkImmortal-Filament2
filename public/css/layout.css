@@ -243,12 +243,25 @@ div.item {
     padding: 10px;
 }
 
+
+/*media queries*/
+ 
 @media screen and (min-width:300px) and (max-width:960px) {
     .desktop_menu {
         display:none;
     }
 
     .mobile_menu {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
     }
-}
+
+    .nav-link {
+        position: absolute;
+    }
+
+    .navbar {
+        width:fit-content;
+    }
+} 

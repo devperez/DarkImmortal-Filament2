@@ -1,8 +1,8 @@
-
 @extends('layouts.menu')
-
 @section('content')
 
+@include('component.lastfm')
+@yield('lastfm')
 @php
 // For 1.3+:
 @require_once('php/autoloader.php');
