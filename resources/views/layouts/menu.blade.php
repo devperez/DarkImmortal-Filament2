@@ -32,7 +32,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:150px; color:black;">Genres</a>
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="width:150px; color:black;">Menu</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href=" {{ route('black') }}">Black</a></li>
                         <li><a class="dropdown-item" href=" {{ route('death') }}">Death</a></li>
@@ -50,12 +50,19 @@
                     </ul>
                 </li>
                 <div class="container-fluid desktopmenu">
-                    <ul style="display:flex; justify-content:center;">
+                    <p>Derniers morceaux écoutés :</p>
+                    <ul>
+                    @foreach ($response as $item)
+                        <li>{{ $item["artist"]["#text"] }} : {{ $item["album"]["#text"] }} | {{ $item["name"] }}</li>
+                    @endforeach
+                    </ul>
+                        
+                    {{-- <ul style="display:flex; justify-content:center;">
                         <li class="customli"><a href="{{ route('groupes') }}">Groupes</a></li>
                         <li class="customli"><a href="{{ route('search') }}">Chercher un groupe</a></li>
                         <li class="customli"><a href="{{ route('random') }}" title="un groupe au hasard">Roulette russe</a></li>
                         <li class="customli"><a href="{{ route('about') }}">À propos</a></li>
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </div>

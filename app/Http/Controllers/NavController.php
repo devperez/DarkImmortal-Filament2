@@ -6,7 +6,8 @@ use App\Models\Post;
 use App\Models\Comment;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Collection;
 
 class NavController extends Controller
 {
@@ -19,7 +20,14 @@ class NavController extends Controller
     {
         $posts = Post::latest()->paginate(6);
         //dd($posts);
-        return view('index', compact('posts'))->with(request()->input('page'));
+        //Call to Lastfm API
+        $response = Http::get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Empyrium666&api_key=47c0277d61bf5ad17c56fc542f0e0762&format=json&limit=10")->json($key=null);
+        
+        $response = $response["recenttracks"]["track"];
+        //dd($response);
+        
+        
+        return view('index', compact('posts', 'response'))->with(request()->input('page'));
         
     }
 
