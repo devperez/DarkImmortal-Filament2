@@ -47,13 +47,9 @@ class PostResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('groupe'),
                 Tables\Columns\TextColumn::make('morceau'),
-                //Tables\Columns\TextColumn::make('clip')->limit(length:1),
                 Tables\Columns\TextColumn::make('album'),
-                //Tables\Columns\TextColumn::make('image'),
-                Tables\Columns\TextColumn::make('article')->limit(length:25),
                 Tables\Columns\TextColumn::make('genre'),
                 Tables\Columns\TextColumn::make('pays'),
-                Tables\Columns\TextColumn::make('paroles')->limit(length:5),
             ])
             ->filters([
                 //

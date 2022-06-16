@@ -26,11 +26,11 @@
                 <p class="article">{!! $post->article !!}</p>
             </div>
             @isset($clip)
-            <div class="col-lg-4 col-md-12" style="display:flex; justify-content:center; flex-direction:column; margin-top:50px;">
+            <div class="col-lg-4 col-md-12 col-sm-12" style="display:flex; justify-content:center; flex-direction:column; margin-top:25px;">
             {!! $clip !!}
             @endisset
             @isset($paroles)
-            <div style="margin-top:50px;" class="col-lg-10 col-md-12 paroles">
+            <div style="padding-top:50px;" class="col-lg-10 col-md-12 col-sm-12 paroles">
                 <p>Paroles :</p>
                 <p>{!! $paroles !!}</p>
             </div>
@@ -43,7 +43,6 @@
 
 
 <livewire:comments :post="$post" />
-<p class="ml-3 pt-3">NB: les commentaires sont modérés à priori et n'apparaissent qu'une fois validés.</p>
 
 
 @foreach ($comments as $comment )

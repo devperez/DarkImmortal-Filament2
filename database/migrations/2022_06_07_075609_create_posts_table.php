@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('groupe');
-            $table->string('morceau');
-            $table->string('clip');
+            $table->longText('groupe');
+            $table->longText('morceau');
+            $table->longText('clip');
             $table->longText('article');
-            $table->string('pays');
-            $table->string('genre');
-            $table->string('image');
-            $table->string('album');
-            $table->string('couv');
+            $table->longText('pays');
+            $table->longText('genre');
+            $table->longText('image');
+            $table->longText('album');
+            $table->longText('couv');
             $table->longText('paroles');
             $table->timestamps();
         });
