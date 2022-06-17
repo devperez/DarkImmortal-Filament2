@@ -3,6 +3,8 @@
 
 @include('component.lastfm')
 @yield('lastfm')
+<link href="{{ asset('css/mobile_menu.css') }}" rel="stylesheet">
+
 @php
 // For 1.3+:
 @require_once('php/autoloader.php');
@@ -63,12 +65,12 @@ $feed->handle_content_type();
                         <p>Publié dans {{ $post->genre }}</p>
                         <!-- <div class="value">4<sup>m</sup></div>
                         <div class="type">Lire</div>
-                    </div>
+                    </div>-->
                     <div class="stat border">
-                        <div class="value">5123</div>
-                        <div class="type">views</div>
+                        <div class="value">{{ $post->vues }}</div>
+                        <div class="type">vues</div>
                     </div>
-                    <div class="stat">
+                    <!--<div class="stat">
                         <div class="value">32</div>
                         <div class="type">comments</div> -->
                     </div>

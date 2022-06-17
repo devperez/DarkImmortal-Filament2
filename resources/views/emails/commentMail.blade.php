@@ -13,7 +13,7 @@
     <h1>{{ $mailData['author'] }}</h1><p> a écrit :</p>
 
     <p>{{ $mailData['comment'] }}</p>
-    <p>Le commentaire a été laissé sur cet article :</p>
+    <p>Le commentaire suivant a été laissé sur cet article :</p>
     
     <h2>Groupe : {{ $mailData['post']->groupe }}</h2>
     <h3>Morceau : {{ $mailData['post']->morceau }}</h3>

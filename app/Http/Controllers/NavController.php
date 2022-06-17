@@ -6,8 +6,9 @@ use App\Models\Post;
 use App\Models\Comment;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class NavController extends Controller
 {
@@ -19,15 +20,24 @@ class NavController extends Controller
     public function groupes()
     {
         $posts = Post::latest()->paginate(6);
-        //dd($posts);
+
         //Call to Lastfm API
         $response = Http::get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Empyrium666&api_key=47c0277d61bf5ad17c56fc542f0e0762&format=json&limit=10")->json($key=null);
         
         $response = $response["recenttracks"]["track"];
         //dd($response);
+        //$bands = Post::all();
+        //$comments = Comment::all();
+        $comments = DB::table('posts')
+                    ->join('comments', 'comments.post_id', '=', 'posts.id')
+                    ->get();
+        $commentNumber = count($comments);
+        //dd(count($comments));
+                    
         
         
-        return view('index', compact('posts', 'response'))->with(request()->input('page'));
+        
+        return view('index', compact('posts', 'commentNumber', 'response'))->with(request()->input('page'));
         
     }
 
@@ -39,12 +49,15 @@ class NavController extends Controller
         $genre = $post->genre;
         $paroles = $post->paroles;
         $id = $post->id;
-        // dd($post->id);
+        $vues = $post->vues;
+        $post->timestamps = false;
+        $post->increment('vues');
+        //dd($post->vues);
         $bandalikes = Post::where('genre', "=", $genre)->take(3)->get();
         $alikes = $bandalikes->reject($post); //pour éviter de proposer le post en cours de lecture dans la rubrique "vous aimerez peut-être aussi"
         $comments = json_decode($comments, true);
         // dd($comments);
-        return view('groupe', compact('post', 'comments', 'clip', 'id', 'paroles', 'alikes'));
+        return view('groupe', compact('post', 'comments', 'clip', 'id', 'paroles', 'alikes', 'vues'));
     }
 
     public function liste($groupe)

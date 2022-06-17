@@ -36,7 +36,7 @@
                 {!! $clip !!}
             </div>
         @endisset
-        <div class="w-100"></div>
+        {{-- <div class="w-100"></div> --}}
         @isset($paroles)
             <div class="col-lg-12 paroles">
                 <p>Paroles :</p>

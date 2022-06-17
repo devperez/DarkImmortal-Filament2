@@ -25,6 +25,7 @@ return new class extends Migration
             $table->longText('album');
             $table->longText('couv');
             $table->longText('paroles');
+            $table->int('vues');
             $table->timestamps();
         });
     }
