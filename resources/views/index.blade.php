@@ -43,7 +43,7 @@ $feed->handle_content_type();
 <div class="container-fluid" style="margin-bottom:15px">
     <div class="row grid gap-4"  style="margin-bottom:15px; justify-content:center;">
     @foreach($posts as $post)
-        <div class="col-md-3 col-xs-3 col-sm-3 mb-3">
+        <div class="col-sm-10 col-xs-12 col-md-4 col-lg-3 mb-3">
             <div class="card h-100">
                 <div class="card-image">
                     <a href="{{ route('groupe', $post->id) }}"><img src="{{ asset('storage/'.$post->image) }}" class="card-image" /></a>

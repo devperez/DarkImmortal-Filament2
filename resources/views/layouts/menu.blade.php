@@ -21,11 +21,11 @@
     <body>
         <div class="container-fluid">
 	        <div class="row">
-	        	<div class="col-md-12 col-sm-6">
+	        	<div class="col-md-12 col-sm-12 col-lg-12">
        	   	        <a href=" {{ route('groupes') }}"><h1 class="hvr-underline-from-center sitename">DARKIMMORTAL</h1></a>
                     <ul class="desktop_menu">
                         <li class="customli"><a href="{{ route('groupes') }}">Groupes</a></li>
-                        <li class="customli"><a href="{{ route('search') }}">Chercher un groupe</a></li>
+                        <li class="customli"><a href="{{ route('search') }}">Rechercher</a></li>
                         <li class="customli"><a href="{{ route('random') }}" title="un groupe au hasard">Roulette russe</a></li>
                         <li class="customli"><a href="{{ route('about') }}">À propos</a></li>
                     </ul>
@@ -33,45 +33,21 @@
 		    </div>
         </div>
 
-        {{-- <div style="display:flex;">
-            <nav class="navbar navbar-light bg-grey">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <img src="{{ asset('/img/social_lastfm_29.png') }}" style="width:64px;" />
-                    </button>
-                </div>
-            </nav> --}}
-            <div class="navbar-collapse nav-item dropdown mobile_menu">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:black;">Menu</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href=" {{ route('black') }}">Black</a></li>
-                    <li><a class="dropdown-item" href=" {{ route('death') }}">Death</a></li>
-                    <li><a class="dropdown-item" href=" {{ route('doom') }}">Doom</a></li>
-                    <li><a class="dropdown-item" href=" {{ route('autre') }}">Autre</a></li>
-                    <div class="mobilemenu">
-                        <ul>
-                            <li><hr></li>
-                            <li class="customli"><a href="{{ route('groupes') }}">Groupes</a></li>
-                            <li class="customli"><a href="{{ route('search') }}">Chercher un groupe</a></li>
-                            <li class="customli"><a href="{{ route('random') }}" title="un groupe au hasard">Roulette russe</a></li>
-                            <li class="customli"><a href="{{ route('about') }}">À propos</a></li>
-                        </ul>
-                    </div>
-                </ul>
-            </div>
+        
+        <div class="navbar-collapse nav-item dropdown mobile_menu">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:#ff076e;">Menu</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href=" {{ route('black') }}">Black</a></li>
+                <li><a class="dropdown-item" href=" {{ route('death') }}">Death</a></li>
+                <li><a class="dropdown-item" href=" {{ route('doom') }}">Doom</a></li>
+                <li><a class="dropdown-item" href=" {{ route('autre') }}">Autre</a></li>
+                <li><hr></li>
+                <li class="customli"><a class="dropdown-item" href="{{ route('groupes') }}">Groupes</a></li>
+                <li class="customli"><a class="dropdown-item" href="{{ route('search') }}">Rechercher</a></li>
+                <li class="customli"><a class="dropdown-item" href="{{ route('random') }}" title="un groupe au hasard">Roulette russe</a></li>
+                <li class="customli"><a class="dropdown-item" href="{{ route('about') }}">À propos</a></li>
+            </ul>
         </div>
-        {{-- <div class="collapse navbar-collapse" id="navbarNav">
-            @isset($response)
-                <div class="container-fluid desktopmenu">
-                    <p>Mes 10 derniers scrobbles sur Lastfm :</p>
-                    <div class="lastfm_container">
-                    @foreach ($response as $item)
-                        <li>{{ $item["artist"]["#text"] }} : {{ $item["album"]["#text"] }} | {{ $item["name"] }}</li>
-                    @endforeach
-                    </div>    
-                </div>
-            @endisset
-        </div> --}}
         @yield('content')
     </body>
 </html>

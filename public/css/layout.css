@@ -27,6 +27,7 @@ body {
 
 .mobile_menu {
     display:none;
+    top:250px;
 }
 
 .desktop_menu {
@@ -89,6 +90,24 @@ a:hover {
     background-repeat:no-repeat;
     background-position:center center;
 }
+
+.video-responsive { 
+    overflow:hidden; 
+    padding-bottom:30%; 
+    position:relative; 
+    height:0;
+    right: 15px;
+}
+
+.video-responsive iframe {
+    margin-left:auto; 
+    margin-right: auto;
+    top:0; 
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
 
 /*design des cartes de la page d'accueil*/
 .card {
@@ -246,7 +265,7 @@ div.item {
 
 /*media queries*/
  
-@media screen and (min-width:300px) and (max-width:960px) {
+@media screen and (max-width:960px) {
     .desktop_menu {
         display:none;
     }

@@ -8,7 +8,12 @@
 <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
 
 
-
+<div class="container" style="display:flex; margin-bottom:15px">
+    <h3><a href="{{ route ('black') }}">Black Metal |</a></h3>
+    <h3><a href="{{ route ('death') }}">| Death Metal |</a></h3>
+    <h3><a href="{{ route ('doom') }}">| Doom Metal |</a></h3>
+    <h3><a href="{{ route ('autre') }}">| Autre</a></h3>
+</div>
 
 <div class="container">
     <form>
@@ -22,8 +27,8 @@
 </div>
 
 
-<div id="fail" class="mt-8" style="display:none">
-    <p> Ce groupe ne figure pas sur ce site.</p>
+<div id="fail" class="mt-8" style="display:none; margin-left:15px;">
+    <h4>Aucun article ne correspond à votre recherche.</h4>
 </div>
 
 <script>

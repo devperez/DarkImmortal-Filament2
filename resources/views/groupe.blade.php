@@ -10,34 +10,42 @@
 @livewireStyles
 
 <div class="couv" style="background-image: url('{{ asset('storage/'. $post->couv) }}')"></div>
-    <div class=container-fluid>
-        <div class="row">
-            <div class="col" style="margin-top:15px">
-                <a href="{{ route('liste', $post->groupe) }}"><h1 class="hvr-underline-from-center">{{ $post->groupe }}</h1></a>
-                <div style="display:flex; justify-content:center;">
-                    <h2>{{ $post->album }} -/</h2>
-                    <h2>/- {{ $post->morceau }}</h2>
-                </div>
+<div class=container-fluid>
+    <div class="row">
+        <div class="col" style="margin-top:15px">
+            <a href="{{ route('liste', $post->groupe) }}"><h1 class="hvr-underline-from-center">{{ $post->groupe }}</h1></a>
+            <div style="display:flex; justify-content:center;">
+                <h2>{{ $post->album }}</h2>
+                @isset($post->morceau)
+                    <h2>-//-</h2>
+                    <h2>{{ $post->morceau }}</h2>
+                @endisset
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-8 col-md-12" style="margin-bottom:50px;">
-                <img src=" {{ asset('storage/'.$post->image) }}" style="float:left; padding:10px; width:400px" />
-                <p class="article">{!! $post->article !!}</p>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-12" style="margin-bottom: 15px;">
+            <img src=" {{ asset('storage/'.$post->image) }}" style="float:left; padding:10px; width:100%" />
+        </div>
+        <div class="col-lg-4 col-md-12" style="margin-bottom: 15px;">
+            <p class="article">{!! $post->article !!}</p>
+        </div>
+        @isset($clip)
+            <div class="col-lg-4 col-md-12 video-responsive" style="display:flex; justify-content:center; flex-direction:column; margin-top:25px; margin-bottom:15px">
+                {!! $clip !!}
             </div>
-            @isset($clip)
-            <div class="col-lg-4 col-md-12 col-sm-12" style="display:flex; justify-content:center; flex-direction:column; margin-top:25px;">
-            {!! $clip !!}
-            @endisset
-            @isset($paroles)
-            <div style="padding-top:50px;" class="col-lg-10 col-md-12 col-sm-12 paroles">
+        @endisset
+        <div class="w-100"></div>
+        @isset($paroles)
+            <div class="col-lg-12 paroles">
                 <p>Paroles :</p>
                 <p>{!! $paroles !!}</p>
             </div>
-            @endisset
-        </div>
+        @endisset
     </div>
 </div>
+
 
 
 
@@ -47,7 +55,7 @@
 
 @foreach ($comments as $comment )
 @if($comment['check'] == 1)
-    <div class="rounded shadow  m-3 p-2 w-1/2" style="border:solid 1px rgb(255,7,110); width:35em;">
+    <div class="rounded shadow m-3 p-2 w-1/2" style="border:solid 1px rgb(255,7,110); width:35em;">
         <div class="flex justify-self-center my-2">
             <p class="font-bold text-lg">{{ $comment['author'] }}</p>
             <p class="mx-3 py-1 text-xs text-gray-500 font-semibold">{{ $comment['body'] }}</p>
@@ -64,7 +72,7 @@
         <h3>Vous aimerez peut-être aussi :</h3>
         <div class="row grid gap-5"  style="margin-bottom:15px; display:flex; justify-content:center;">
         @foreach($alikes as $alike)
-            <div class="col-md-3 col-xs-3 col-sm-3 mb-3">
+            <div class="col-lg-3 col-md-4 col-sm-12 mb-3">
                 <div class="card h-100">
                     <div class="card-image">
                         <a href="{{ route('groupe', $alike->id) }}"><img src="{{ asset('storage/'.$alike->image) }}" class="card-image" /></a>
@@ -81,6 +89,7 @@
                     </div>
                     <div class="card-stats">
                         <div class="stat">
+                            <p>Publié dans {{ $post->genre }}</p>
                         </div>
                     </div>
                 </div>
