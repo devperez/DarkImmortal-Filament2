@@ -73,7 +73,20 @@
                     </div>
                     <div class="card-stats">
                         <div class="stat">
-                            <p>Publié dans {{ $post->genre }}</p>
+                            <div>Publié dans</div>
+                            <p>{{ $post->genre }}</p>
+                        </div>
+                        <div class="stat border">
+                            <div class="value">{{ $post->vues }}</div>
+                            <div class="type">vues</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">{{ count($post->comments) }}</div>
+                            @if (count($post->comments)<= 1)
+                            <div class="type">commentaire</div>
+                            @else
+                            <div class="type">commentaires</div>
+                        @endif
                         </div>
                     </div>
                 </div>

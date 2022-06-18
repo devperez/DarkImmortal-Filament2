@@ -161,7 +161,7 @@ a:hover {
 
 .card-stats {
     grid-area: stats; 
-    /*display: grid;*/
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     border-bottom-left-radius: 15px;

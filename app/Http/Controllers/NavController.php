@@ -23,21 +23,11 @@ class NavController extends Controller
 
         //Call to Lastfm API
         $response = Http::get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Empyrium666&api_key=47c0277d61bf5ad17c56fc542f0e0762&format=json&limit=10")->json($key=null);
-        
         $response = $response["recenttracks"]["track"];
-        //dd($response);
-        //$bands = Post::all();
-        //$comments = Comment::all();
-        $comments = DB::table('posts')
-                    ->join('comments', 'comments.post_id', '=', 'posts.id')
-                    ->get();
-        $commentNumber = count($comments);
-        //dd(count($comments));
-                    
         
         
         
-        return view('index', compact('posts', 'commentNumber', 'response'))->with(request()->input('page'));
+        return view('index', compact('posts', 'response'))->with(request()->input('page'));
         
     }
 

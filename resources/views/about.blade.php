@@ -17,9 +17,9 @@
         - Au revoir Disquus pour les commentaires : développement de mon propre système de commentaires modérés à priori.<br />
         - Utilisation de Livewire pour le formulaire du commentaire.<br />
         - Utilisation des Events et des Listeners pour être informer automatiquement de la création d'un commentaire.<br />
-        - Légère retouche des cartes : chaque image est maintenant exactement à la même taille.<br />
+        - Légère retouche des cartes : chaque image est maintenant exactement à la même taille, affichage du nombre de vues par carte et du nombre de commentaires par carte et le tout de façon dynamique.<br />
         - Intégration de l'API de Lastfm pour afficher mes derniers scrobbles. Il y aura peut-être d'autres fonctionnalités basées sur cette API dans le futur.<br />
-        - Le menu de navigation est plus facilement accessible.<br />
+        - Le menu de navigation est plus ergonomique.<br />
         - Augmentation de la taille des vidéos sur les pages des groupes.<br />
         
     </p>

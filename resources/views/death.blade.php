@@ -22,18 +22,20 @@
                 </div>
                 <div class="card-stats">
                     <div class="stat">
-                        <p>Publié dans {{ $post->genre }}</p>
-                        <!-- <p>Lire la suite</p> -->
-                        <!-- <div class="value">4<sup>m</sup></div>
-                        <div class="type">Lire</div>
+                        <div>Publié dans</div>
+                        <p>{{ $post->genre }}</p>
                     </div>
                     <div class="stat border">
-                        <div class="value">5123</div>
-                        <div class="type">views</div>
+                        <div class="value">{{ $post->vues }}</div>
+                        <div class="type">vues</div>
                     </div>
                     <div class="stat">
-                        <div class="value">32</div>
-                        <div class="type">comments</div> -->
+                        <div class="value">{{ count($post->comments) }}</div>
+                        @if (count($post->comments)<= 1)
+                            <div class="type">commentaire</div>
+                            @else
+                            <div class="type">commentaires</div>
+                        @endif
                     </div>
                 </div>
             </div>
