@@ -44,6 +44,7 @@ class CommentResource extends Resource
                 TextColumn::make('post.groupe'),
                 TextColumn::make('post.morceau'),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ]);

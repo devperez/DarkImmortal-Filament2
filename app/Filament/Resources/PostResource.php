@@ -52,6 +52,7 @@ class PostResource extends Resource
                 Tables\Columns\TextColumn::make('genre'),
                 Tables\Columns\TextColumn::make('pays'),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ]);
