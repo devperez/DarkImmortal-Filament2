@@ -47,6 +47,7 @@ class PostResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('groupe'),
                 Tables\Columns\TextColumn::make('morceau'),
+                Tables\Columns\BooleanColumn::make('comments.post'),
                 Tables\Columns\TextColumn::make('album'),
                 Tables\Columns\TextColumn::make('genre'),
                 Tables\Columns\TextColumn::make('pays'),
