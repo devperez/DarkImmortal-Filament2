@@ -18,12 +18,11 @@
         - Refonte totale du back office : passage sous Filament.<br />
         - Au revoir Disquus pour les commentaires : développement de mon propre système de commentaires modérés à priori.<br />
         - Utilisation de Livewire pour le formulaire du commentaire.<br />
-        - Utilisation des Events et des Listeners pour être informer automatiquement de la création d'un commentaire.<br />
-        - Légère retouche des cartes : chaque image est maintenant exactement à la même taille, affichage du nombre de vues par carte et du nombre de commentaires par carte et le tout de façon dynamique.<br />
+        - Utilisation des Events et des Listeners pour être informé automatiquement de la création d'un commentaire.<br />
+        - Légère retouche des cartes : chaque image est maintenant exactement à la même taille, affichage du nombre de vues et du nombre de commentaires sur chaque carte et le tout de façon dynamique.<br />
         - Intégration de l'API de Lastfm pour afficher mes derniers scrobbles. Il y aura peut-être d'autres fonctionnalités basées sur cette API dans le futur.<br />
         - Le menu de navigation est plus ergonomique.<br />
-        - Augmentation de la taille des vidéos sur les pages des groupes.<br />
-        
+        - Augmentation de la taille des vidéos sur les pages des groupes et révision de la mise en page.<br />
     </p>
 </div>
 @endsection
