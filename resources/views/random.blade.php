@@ -31,17 +31,21 @@
         <div class="col-lg-4 col-md-12" style="margin-bottom: 15px;">
             <p class="article">{!! $post->article !!}</p>
         </div>
+    </div>
+    <hr style="color:#ff076e">
+    <div class="row">
+        @isset($post->paroles)
+        <div class="col-lg-6 col-md-4 col-sm-12" style="margin-bottom: 15px;">
+            <p>Paroles :</p>
+            <p>{!! $post->paroles !!}</p>
+        </div>
+        @endisset
         @isset($post->clip)
-            <div class="col-lg-4 col-md-12 video-responsive" style="display:flex; justify-content:center; flex-direction:column; margin-top:25px; margin-bottom:15px">
+        <div class="col-lg-6 col-md-8 col-sm-12" style="margin:auto;">
+            <div>
                 {!! $post->clip !!}
             </div>
-        @endisset
-        <div class="w-100"></div>
-        @isset($post->paroles)
-            <div class="col-lg-12 paroles">
-                <p>Paroles :</p>
-                <p>{!! $post->paroles !!}</p>
-            </div>
+        </div>
         @endisset
     </div>
 </div>
@@ -69,11 +73,16 @@
                     <div class="card-text">
                         <span class="date">publié le {{ $alike->created_at->format('d/m/Y à H:i:s') }}</span>
                         <h2>{{ $alike->groupe }}</h2>
+                        @if($alike->morceau)
+                        <p>{{ $alike->morceau }}</p>
+                        @else
+                        <p>{{ $alike->album }}</p>
+                        @endif
                         <p>{!! $alike->very_short_description !!}</p>
                     </div>
                     <div class="card-stats">
                         <div class="stat">
-                            <p>Publié dans {{ $post->genre }}</p>
+                            <p>Publié dans {{ $alike->genre }}</p>
                         </div>
                         <div class="stat border">
                             <div class="value">{{ $alike->vues }}</div>

@@ -1,7 +1,8 @@
 @extends('layouts.menu')
 @section('content')
+<link href="{{ asset('css/mobile_menu.css') }}" rel="stylesheet">
 
-<h1 style="display: flex; justify-content:center;" class="mb-4">Liste des articles pour le groupe {{ $groupe }} :</h1>
+<h1 style="display: flex; justify-content:center; margin-top:30px" class="mb-4">Liste des articles pour le groupe {{ $groupe }} :</h1>
 
 <div class="container-fluid" style="margin-bottom:150px">
     <div class="row grid gap-5">

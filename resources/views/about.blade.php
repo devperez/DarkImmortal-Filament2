@@ -1,6 +1,8 @@
 @extends('layouts.menu')
 @section('content')
-<div class="container">
+<link href="{{ asset('css/mobile_menu.css') }}" rel="stylesheet">
+
+<div class="container" style="margin-top: 30px;">
     <p class="about">
         01/10/2021<br />
         Bonjour et soyez les bienvenus sur ce site.<br />

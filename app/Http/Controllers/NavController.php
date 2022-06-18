@@ -34,17 +34,20 @@ class NavController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+        //dd($post);
         $comments = Comment::where('post_id', '=', $post->id)->get();
         $clip = $post->clip;
         $genre = $post->genre;
         $paroles = $post->paroles;
         $id = $post->id;
         $vues = $post->vues;
-        $post->timestamps = false;
+        $post->timestamps = false; //pour garder la bonne date et ne pas modifier en base à chaque incrément de vue
         $post->increment('vues');
         //dd($post->vues);
         $bandalikes = Post::where('genre', "=", $genre)->take(3)->get();
-        $alikes = $bandalikes->reject($post); //pour éviter de proposer le post en cours de lecture dans la rubrique "vous aimerez peut-être aussi"
+        //dd($post);
+        $alikes = $bandalikes->except([$id]); //pour éviter de proposer le post en cours de lecture dans la rubrique "vous aimerez peut-être aussi"
+        //dd($alikes);
         $comments = json_decode($comments, true);
         // dd($comments);
         return view('groupe', compact('post', 'comments', 'clip', 'id', 'paroles', 'alikes', 'vues'));
@@ -77,8 +80,9 @@ class NavController extends Controller
     {
         $post = Post::all()->random(1)->first();
         $genre = $post->genre;
+        $id = $post->id;
         $bandalikes = Post::where('genre', "=", $genre)->take(3)->get();
-        $alikes = $bandalikes->reject($post); //pour éviter de proposer le post en cours de lecture dans la rubrique "vous aimerez peut-être aussi"
+        $alikes = $bandalikes->except([$id]); //pour éviter de proposer le post en cours de lecture dans la rubrique "vous aimerez peut-être aussi"
         // dd($alikes);
         // dd($post);
         return view('random', compact('post','alikes'));

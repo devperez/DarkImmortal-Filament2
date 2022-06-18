@@ -1,6 +1,6 @@
 @extends('layouts.menu')
-
 @section('content')
+<link href="{{ asset('css/mobile_menu.css') }}" rel="stylesheet">
 
 <div class="container-fluid" style="margin-bottom:15px">
     <div class="row grid gap-4"  style="margin-bottom:15px; justify-content:center;">

@@ -93,7 +93,7 @@
                     </div>
                     <div class="card-stats">
                         <div class="stat">
-                            <p>Publié dans {{ $post->genre }}</p>
+                            <p>Publié dans {{ $alike->genre }}</p>
                         </div>
                         <div class="stat border">
                             <div class="value">{{ $alike->vues }}</div>
