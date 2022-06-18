@@ -31,17 +31,21 @@
         <div class="col-lg-4 col-md-12" style="margin-bottom: 15px;">
             <p class="article">{!! $post->article !!}</p>
         </div>
+    </div>
+    <hr style="color:#ff076e">
+    <div class="row">
+        @isset($paroles)
+        <div class="col-lg-6 col-md-4 col-sm-12" style="margin-bottom: 15px;">
+            <p>Paroles :</p>
+            <p>{!! $paroles !!}</p>
+        </div>
+        @endisset
         @isset($clip)
-            <div class="col-lg-4 col-md-12 video-responsive" style="display:flex; justify-content:center; flex-direction:column; margin-top:25px; margin-bottom:15px">
+        <div class="col-lg-6 col-md-8 col-sm-12" style="margin:auto;">
+            <div>
                 {!! $clip !!}
             </div>
-        @endisset
-        {{-- <div class="w-100"></div> --}}
-        @isset($paroles)
-            <div class="col-lg-12 paroles">
-                <p>Paroles :</p>
-                <p>{!! $paroles !!}</p>
-            </div>
+        </div>
         @endisset
     </div>
 </div>
@@ -55,7 +59,7 @@
 
 @foreach ($comments as $comment )
 @if($comment['check'] == 1)
-    <div class="rounded shadow m-3 p-2 w-1/2" style="border:solid 1px rgb(255,7,110); width:35em;">
+    <div class="rounded shadow m-3 p-2 w-1/2" style="border:solid 1px rgb(255,7,110); width:50%;">
         <div class="flex justify-self-center my-2">
             <p class="font-bold text-lg">{{ $comment['author'] }}</p>
             <p class="mx-3 py-1 text-xs text-gray-500 font-semibold">{{ $comment['body'] }}</p>

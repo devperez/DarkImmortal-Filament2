@@ -1,11 +1,11 @@
 body {
     background: rgb(160,160,160);
+    font-size: 20px;
 }
 
 .sitename {
     display: flex;
     justify-content: center;
-    /* padding-bottom: 20px; */
     font-family: 'Nosifer', cursive;
 }
 
@@ -50,7 +50,7 @@ li {
 }
 
 li a {
-    font-size: xx-large;
+    font-size: x-large;
 }
 
 a {

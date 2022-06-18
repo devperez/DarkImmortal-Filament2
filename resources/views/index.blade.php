@@ -58,7 +58,6 @@ $feed->handle_content_type();
                     @else
                     <p>{{ $post->album }}</p>
                     @endif
-                    <p>{!! $post->very_short_description !!}</p>
                 </div>
                 <div class="card-stats">
                     <div class="stat">

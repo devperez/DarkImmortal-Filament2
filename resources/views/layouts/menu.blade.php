@@ -16,6 +16,24 @@
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
 	    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
 	    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+        <!-- Primary Meta Tags -->
+        <meta name="title" content="DarkImmortal">
+        <meta name="description" content="DarkImmortal est un site de découverte et de partage de musique. Tout ce qui accroche mon oreille est susceptible de se retrouver sur DarkImmortal.fr">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://darkimmortal.fr/">
+        <meta property="og:title" content="DarkImmortal">
+        <meta property="og:description" content="DarkImmortal est un site de découverte et de partage de musique. Tout ce qui accroche mon oreille est susceptible de se retrouver sur DarkImmortal.fr">
+        <meta property="og:image" content="https://www.darkimmortal.fr/img/capture.png">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://darkimmortal.fr/">
+        <meta property="twitter:creator" content="@Endymion666">
+        <meta property="twitter:title" content="DarkImmortal">
+        <meta property="twitter:description" content="DarkImmortal est un site de découverte et de partage de musique. Tout ce qui accroche mon oreille est susceptible de se retrouver sur DarkImmortal.fr">
+        <meta property="twitter:image" content="https://www.darkimmortal.fr/img/capture.png">
         
     </head>
     <body>
