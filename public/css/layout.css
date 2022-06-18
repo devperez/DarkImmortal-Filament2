@@ -178,6 +178,17 @@ a:hover {
     padding:5px;
 }
 
+/*modif sur la partie sélection pagination*/
+.page-item:not(:first-child) .page-link {
+    color: #ff076e;
+    background-color: black;
+}
+
+.page-item:first-child .page-link {
+    color: #ff076e;
+    background-color: black;
+}
+
 .paroles {
     border-left: grey 1px solid;
 }
