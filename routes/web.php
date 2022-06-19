@@ -19,6 +19,8 @@ Route::get('/', [NavController::class, 'groupes'])->name('groupes');
 //Navigation
 Route::get('/about', [NavController::class, 'about'])->name('about');
 Route::get('/groupes', [NavController::class, 'groupes'])->name('groupes');
+Route::get('/playlists', [NavController::class, 'playlists'])->name('playlists');
+Route::get('/playlist/{id}', [NavController::class, 'playlist'])->name('playlist');
 Route::get('/groupe/{id}', [NavController::class,'show'])->name('groupe');
 Route::get('/liste/{groupe}', [NavController::class,'liste'])->name('liste');
 route::get('/search', [NavController::class, 'index'])->name('search');

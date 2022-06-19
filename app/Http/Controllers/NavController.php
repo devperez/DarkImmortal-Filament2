@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\Playlist;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -20,15 +21,11 @@ class NavController extends Controller
     public function groupes()
     {
         $posts = Post::latest()->paginate(6);
-
         //Call to Lastfm API
         $response = Http::get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Empyrium666&api_key=47c0277d61bf5ad17c56fc542f0e0762&format=json&limit=10")->json($key=null);
         $response = $response["recenttracks"]["track"];
         
-        
-        
         return view('index', compact('posts', 'response'))->with(request()->input('page'));
-        
     }
 
     public function show($id)
@@ -112,5 +109,20 @@ class NavController extends Controller
     {
         $posts = Post::where('genre','=','Autre')->simplepaginate(6);
         return view('autre', compact('posts'));
+    }
+
+    public function playlists()
+    {
+        $playlists = Playlist::latest()->paginate(6);
+
+        return view('playlists', compact('playlists'))->with(request()->input('page'));
+    }
+
+    public function playlist($id)
+    {
+        $playlist = Playlist::find($id);
+        //dd($playlist);
+
+        return view('playlist', compact('playlist'));
     }
 }       

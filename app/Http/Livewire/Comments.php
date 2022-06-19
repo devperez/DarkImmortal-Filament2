@@ -5,7 +5,9 @@ namespace App\Http\Livewire;
 use App\Models\Post;
 use App\Models\Comment;
 use Livewire\Component;
+use App\Models\Playlist;
 use App\Events\CommentCreated;
+use Illuminate\Support\Facades\Route;
 
 class Comments extends Component
 {
@@ -14,6 +16,7 @@ class Comments extends Component
     public $body;
     public $post;
     public $comments;
+    public $playlist;
 
     protected $rules = [
         'author' => 'required|max:20',
@@ -22,7 +25,16 @@ class Comments extends Component
 
     public function mount()
     {
-        $post = Post::findOrFail($this->post->id);
+        $route = Route::current()->getName();
+
+        //dd($route);
+        if($route == 'playlist')
+        {
+            $playlist = Playlist::findOrFail($this->playlist->id);
+            //dd($playlist);
+        }else {
+            $post = Post::findOrFail($this->post->id);
+        }
         //dd($post->id);
     }
 
@@ -34,6 +46,7 @@ class Comments extends Component
             'author'=> $this->author,
             'body'=>$this->body,
             'post_id'=> $this->post->id,
+            'playlist_id'=>$this->playlist->id,
         ]);
 
         $comment = Comment::latest()->first();
@@ -47,12 +60,6 @@ class Comments extends Component
 
     public function render()
     {
-        // $comments = Comment::where('post_id', '=', $this->post->id)->where('check', '=', '1')->get();
-        // $comments = json_decode($comments, true);
-
-        // dd($comments);
-        // $comments = Comment::where('post_id', '=', $this->post->id);
-        // dd($this->post->id);
         return view('livewire.comments');
     }
 }

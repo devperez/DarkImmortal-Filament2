@@ -43,6 +43,7 @@
        	   	        <a href=" {{ route('groupes') }}"><h1 class="hvr-underline-from-center sitename">DARKIMMORTAL</h1></a>
                     <ul class="desktop_menu">
                         <li class="customli"><a href="{{ route('groupes') }}">Groupes</a></li>
+                        <li class="customli"><a href="{{ route('playlists') }}">Playlists</a></li>
                         <li class="customli"><a href="{{ route('search') }}">Rechercher</a></li>
                         <li class="customli"><a href="{{ route('random') }}" title="un groupe au hasard">Roulette russe</a></li>
                         <li class="customli"><a href="{{ route('about') }}">À propos</a></li>
@@ -61,6 +62,7 @@
                 <li><a class="dropdown-item" href=" {{ route('autre') }}">Autre</a></li>
                 <li><hr></li>
                 <li class="customli"><a class="dropdown-item" href="{{ route('groupes') }}">Groupes</a></li>
+                <li class="customli"><a class="dropdown-item" href="{{ route('playlists') }}">Playlists</a></li>
                 <li class="customli"><a class="dropdown-item" href="{{ route('search') }}">Rechercher</a></li>
                 <li class="customli"><a class="dropdown-item" href="{{ route('random') }}" title="un groupe au hasard">Roulette russe</a></li>
                 <li class="customli"><a class="dropdown-item" href="{{ route('about') }}">À propos</a></li>
