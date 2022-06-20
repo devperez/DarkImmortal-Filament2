@@ -28,7 +28,7 @@ class Comments extends Component
         $route = Route::current()->getName();
 
         //dd($route);
-        if($route == 'playlist')
+        if($route == 'playlist') // vérification de l'origine de la requête pour retrouver l'article
         {
             $playlist = Playlist::findOrFail($this->playlist->id);
             //dd($playlist);
@@ -42,12 +42,22 @@ class Comments extends Component
     {
         $this->validate();
 
-        Comment::create([
-            'author'=> $this->author,
-            'body'=>$this->body,
-            'post_id'=> $this->post->id,
-            'playlist_id'=>$this->playlist->id,
+        
+        if (!empty($this->post->id)) //vérification de cette variable pour éviter les erreurs lors de la création en bdd
+        {
+            
+            Comment::create([
+                'author'=> $this->author,
+                'body'=>$this->body,
+                'post_id'=> $this->post->id,
         ]);
+        }else {
+            Comment::create([
+                'author'=> $this->author,
+                'body'=>$this->body,
+                'playlist_id'=>$this->playlist->id,
+            ]);
+        }
 
         $comment = Comment::latest()->first();
         //dd($comment);
@@ -55,7 +65,7 @@ class Comments extends Component
         event(new CommentCreated($comment));
         
         $this->author = "";
-        $this->body = "";
+        $this->body = "// Votre commentaire a été envoyé ! //";
     }
 
     public function render()

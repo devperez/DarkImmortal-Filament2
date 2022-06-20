@@ -31,7 +31,7 @@
         </div>
     </div>
     <hr style="color:#ff076e">
-    <div class="row">
+    <div class="row" style="margin-top: 30px; margin-left:auto; margin-right:auto;">
         @isset($playlist->clip01)
         <div class="col-lg-6 col-md-4 col-sm-12" style="margin-bottom: 15px;">
             <div>{!! $playlist->clip01 !!}</div>
@@ -48,5 +48,19 @@
 </div>
 
 <livewire:comments :playlist="$playlist" />
+
+@foreach ($comments as $comment )
+@if($comment['check'] == 1)
+    <div class="rounded shadow m-3 p-2 w-1/2" style="border:solid 1px rgb(255,7,110); width:50%;">
+        <div class="flex justify-self-center my-2">
+            <p class="font-bold text-lg">{{ $comment['author'] }}</p>
+            <p class="mx-3 py-1 text-xs text-gray-500 font-semibold">{{ $comment['body'] }}</p>
+        </div>
+    </div>
+    @endif
+    
+@endforeach
+
+@livewireScripts
 
 @endsection

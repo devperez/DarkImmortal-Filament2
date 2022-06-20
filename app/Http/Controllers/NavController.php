@@ -122,7 +122,8 @@ class NavController extends Controller
     {
         $playlist = Playlist::find($id);
         //dd($playlist);
+        $comments = Comment::where('playlist_id', '=', $playlist->id)->get();
 
-        return view('playlist', compact('playlist'));
+        return view('playlist', compact('playlist', 'comments'));
     }
 }       

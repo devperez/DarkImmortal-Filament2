@@ -38,11 +38,12 @@ class CommentResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('author'),
-                TextColumn::make('body'),
+                TextColumn::make('author')->label('Auteur'),
+                TextColumn::make('body')->label('Commentaire'),
                 BooleanColumn::make('check'),
-                TextColumn::make('post.groupe'),
-                TextColumn::make('post.morceau'),
+                TextColumn::make('playlist.groupe'),
+                TextColumn::make('post.groupe')->label('Groupe'),
+                TextColumn::make('post.morceau')->label('Morceau'),
             ])
             ->defaultSort('created_at', 'desc')
             ->filters([

@@ -15,6 +15,7 @@
 <hr>
     <p class="about">
         Notes sur la mise à jour de juillet 2022 :<br />
+        - Création d'une nouvelle catégorie d'articles : Playlists. Cette catégorie servira à présenter un groupe, ou un thème abordé par différents groupes au travers de plusieurs chansons (maximum 10). Je pense que c'est un bon moyen de découvrir de nouveaux artistes ou d'aborder des morceaux connus d'une manière différente.<br />
         - Refonte totale du back office : passage sous Filament.<br />
         - Au revoir Disquus pour les commentaires : développement de mon propre système de commentaires modérés à priori.<br />
         - Utilisation de Livewire pour le formulaire du commentaire.<br />
@@ -23,6 +24,7 @@
         - Intégration de l'API de Lastfm pour afficher mes derniers scrobbles. Il y aura peut-être d'autres fonctionnalités basées sur cette API dans le futur.<br />
         - Le menu de navigation est plus ergonomique.<br />
         - Augmentation de la taille des vidéos sur les pages des groupes et révision de la mise en page.<br />
+        - Amélioration du SEO.<br />
     </p>
 </div>
 @endsection
