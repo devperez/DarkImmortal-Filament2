@@ -11,9 +11,7 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use App\Filament\Resources\PostResource\Pages;
-use App\Filament\Resources\PostResource\RelationManagers;
-
-
+    
 class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
@@ -45,7 +43,8 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('groupe'),
+                Tables\Columns\TextColumn::make('id')->label('#')->sortable(),
+                Tables\Columns\TextColumn::make('groupe')->sortable(),
                 Tables\Columns\TextColumn::make('morceau'),
                 Tables\Columns\BooleanColumn::make('comments.post')->label('Commentaire'),
                 Tables\Columns\TextColumn::make('album'),
@@ -61,7 +60,7 @@ class PostResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+        //
         ];
     }
     

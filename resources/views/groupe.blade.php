@@ -32,7 +32,7 @@
             <p class="article">{!! $post->article !!}</p>
         </div>
     </div>
-    <hr style="color:#ff076e">
+    <hr class="hr">
     <div class="row">
         @isset($paroles)
         <div class="col-lg-6 col-md-4 col-sm-12" style="margin-bottom: 15px;">

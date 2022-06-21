@@ -83,12 +83,19 @@ a:hover {
 
 /*page individuelle des groupes*/
 .couv {
-    height: 250px;
+    height: 400px;
     width:100%;
     background-attachment:fixed;
     background-size:cover;
     background-repeat:no-repeat;
     background-position:center center;
+}
+
+.hr {
+    height:5px !important;
+    color:#ff076e;
+    background-color: #ff076e;
+    border: none;
 }
 
 .video-responsive { 

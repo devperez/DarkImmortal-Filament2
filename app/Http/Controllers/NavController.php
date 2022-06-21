@@ -22,7 +22,8 @@ class NavController extends Controller
     {
         $posts = Post::latest()->paginate(6);
         //Call to Lastfm API
-        $response = Http::get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Empyrium666&api_key=47c0277d61bf5ad17c56fc542f0e0762&format=json&limit=10")->json($key=null);
+        $response = Http::get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Empyrium666&api_key=47c0277d61bf5ad17c56fc542f0e0762&format=json&limit=10")->json();
+        //dd($response);
         $response = $response["recenttracks"]["track"];
         
         return view('index', compact('posts', 'response'))->with(request()->input('page'));
@@ -123,7 +124,7 @@ class NavController extends Controller
         $playlist = Playlist::find($id);
         //dd($playlist);
         $comments = Comment::where('playlist_id', '=', $playlist->id)->get();
-
+    
         return view('playlist', compact('playlist', 'comments'));
     }
 }       
