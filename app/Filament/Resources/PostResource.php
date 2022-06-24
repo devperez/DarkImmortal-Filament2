@@ -15,6 +15,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use App\Filament\Resources\PostResource\Pages;
+use App\Filament\Resources\PostResource\Widgets\StatsOverview;
 
 class PostResource extends Resource
 {
@@ -57,7 +58,7 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')->label('#')->sortable(),
+                // Tables\Columns\TextColumn::make('id')->label('#')->sortable(),
                 Tables\Columns\TextColumn::make('groupe')->sortable(),
                 Tables\Columns\TextColumn::make('morceau'),
                 Tables\Columns\BooleanColumn::make('comments.post')->label('Commentaire'),
@@ -84,6 +85,13 @@ class PostResource extends Resource
             'index' => Pages\ListPosts::route('/'),
             'create' => Pages\CreatePost::route('/create'),
             'edit' => Pages\EditPost::route('/{record}/edit'),
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            StatsOverview::class,
         ];
     }
 }
