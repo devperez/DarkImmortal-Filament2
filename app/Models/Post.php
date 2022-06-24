@@ -11,6 +11,10 @@ class Post extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'draft' => 'boolean',
+    ];
+
     public function comments()
     {
         return $this->hasMany(Comment::class);

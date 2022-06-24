@@ -5,16 +5,22 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use App\Models\Post;
 use Filament\Tables;
+use App\Models\Genre;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use App\Filament\Resources\PostResource\Pages;
-    
+
 class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
+
+    protected static ?string $recordTitleAttribute = 'groupe';
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -26,6 +32,13 @@ class PostResource extends Resource
                 Forms\Components\TextInput::make('morceau'),
                 Forms\Components\TextInput::make('album'),
                 RichEditor::make('article'),
+                TextInput::make('Genre')
+                ->datalist([
+                    'Black Metal',
+                    'Death Metal',
+                    'Doom Metal',
+                    'Autre',
+                ]),
                 Forms\Components\TextInput::make('genre'),
                 Forms\Components\TextInput::make('pays'),
                 RichEditor::make('paroles'),
@@ -36,6 +49,7 @@ class PostResource extends Resource
                 ->imageResizeTargetWidth('2236'),
                 FileUpload::make('couv')
                 ->directory('couvertures'),
+                Toggle::make('draft')->label('Publier ?'),
             ]);
     }
 
@@ -48,8 +62,8 @@ class PostResource extends Resource
                 Tables\Columns\TextColumn::make('morceau'),
                 Tables\Columns\BooleanColumn::make('comments.post')->label('Commentaire'),
                 Tables\Columns\TextColumn::make('album'),
-                Tables\Columns\TextColumn::make('genre'),
-                Tables\Columns\TextColumn::make('pays'),
+                Tables\Columns\TextColumn::make('genre')->label('Genre'),
+                Tables\Columns\BooleanColumn::make('draft')->label('Publié'),
             ])
             ->defaultSort('created_at', 'desc')
             ->filters([

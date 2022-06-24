@@ -31,16 +31,71 @@
         </div>
     </div>
     <hr style="color:#ff076e">
-    <div class="row" style="margin-top: 30px; margin-left:auto; margin-right:auto;">
+
+    <div style="display:flex; flex-direction:column; align-items:center;">
         @isset($playlist->clip01)
-        <div class="col-lg-6 col-md-4 col-sm-12" style="margin-bottom: 15px;">
+        <div>
             <div>{!! $playlist->clip01 !!}</div>
         </div>
         @endisset
         @isset($playlist->clip02)
-        <div class="col-lg-6 col-md-8 col-sm-12" style="margin:auto;">
+        <div>
             <div>
                 {!! $playlist->clip02 !!}
+            </div>
+        </div>
+        @endisset
+        @isset($playlist->clip03)
+        <div>
+            <div>{!! $playlist->clip03 !!}</div>
+        </div>
+        @endisset
+        @isset($playlist->clip04)
+        <div>
+            <div>
+                {!! $playlist->clip04 !!}
+            </div>
+        </div>
+        @endisset
+        @isset($playlist->clip05)
+        <div>
+            <div>
+                {!! $playlist->clip05 !!}
+            </div>
+        </div>
+        @endisset
+        @isset($playlist->clip06)
+        <div>
+            <div>
+                {!! $playlist->clip06 !!}
+            </div>
+        </div>
+        @endisset
+        @isset($playlist->clip07)
+        <div>
+            <div>
+                {!! $playlist->clip07 !!}
+            </div>
+        </div>
+        @endisset
+        @isset($playlist->clip08)
+        <div>
+            <div>
+                {!! $playlist->clip08 !!}
+            </div>
+        </div>
+        @endisset
+        @isset($playlist->clip09)
+        <div>
+            <div>
+                {!! $playlist->clip09 !!}
+            </div>
+        </div>
+        @endisset
+        @isset($playlist->clip10)
+        <div>
+            <div>
+                {!! $playlist->clip10 !!}
             </div>
         </div>
         @endisset

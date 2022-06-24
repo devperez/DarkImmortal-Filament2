@@ -17,6 +17,8 @@ class PlaylistResource extends Resource
 {
     protected static ?string $model = Playlist::class;
 
+    protected static ?string $recordTitleAttribute = 'groupe';
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
@@ -52,8 +54,7 @@ class PlaylistResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('groupe'),
-                Tables\Columns\TextColumn::make('theme'),
-                Tables\Columns\TextColumn::make('article'),
+                Tables\Columns\TextColumn::make('theme')->label('thème'),
                 Tables\Columns\BooleanColumn::make('comments.playlist')->label('Commentaire'),
             ])
             ->defaultSort('created_at', 'desc')
