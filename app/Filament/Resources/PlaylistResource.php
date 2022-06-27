@@ -52,8 +52,8 @@ class PlaylistResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('groupe'),
-                Tables\Columns\TextColumn::make('theme')->label('thème'),
+                Tables\Columns\TextColumn::make('groupe')->searchable(),
+                Tables\Columns\TextColumn::make('theme')->label('thème')->searchable(),
                 Tables\Columns\BooleanColumn::make('comments.playlist')->label('Commentaire'),
             ])
             ->defaultSort('created_at', 'desc')

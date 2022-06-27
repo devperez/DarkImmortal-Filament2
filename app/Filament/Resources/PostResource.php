@@ -60,10 +60,10 @@ class PostResource extends Resource
         return $table
             ->columns([
                 // Tables\Columns\TextColumn::make('id')->label('#')->sortable(),
-                Tables\Columns\TextColumn::make('groupe')->sortable(),
-                Tables\Columns\TextColumn::make('morceau'),
+                Tables\Columns\TextColumn::make('groupe')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('morceau')->searchable(),
                 Tables\Columns\BooleanColumn::make('comments.post')->label('Commentaire'),
-                Tables\Columns\TextColumn::make('album'),
+                Tables\Columns\TextColumn::make('album')->searchable(),
                 Tables\Columns\TextColumn::make('genre')->label('Genre'),
                 Tables\Columns\BooleanColumn::make('draft')->label('Publié'),
             ])
