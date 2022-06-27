@@ -40,14 +40,15 @@ class PostResource extends Resource
                     'Doom Metal',
                     'Autre',
                 ]),
-                Forms\Components\TextInput::make('genre'),
+                // Forms\Components\TextInput::make('genre'),
                 Forms\Components\TextInput::make('pays'),
                 RichEditor::make('paroles'),
                 Forms\Components\TextInput::make('clip'),
                 FileUpload::make('image')
                 ->directory('pochettes')
                 ->imageResizeTargetHeight('1290')
-                ->imageResizeTargetWidth('2236'),
+                ->imageResizeTargetWidth('2236')
+                ->label('Carte'),
                 FileUpload::make('couv')
                 ->directory('couvertures'),
                 Toggle::make('draft')->label('Publier ?'),
@@ -94,4 +95,9 @@ class PostResource extends Resource
             StatsOverview::class,
         ];
     }
+
+    // public static function getGloballySearchableAttributes(): array
+    // {
+    //     return ['Groupe', 'Morceau', 'Album'];
+    // }
 }

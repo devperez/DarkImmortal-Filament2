@@ -2,9 +2,6 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
-use App\Models\Post;
-use Filament\Tables;
 use App\Models\Comment;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
@@ -14,10 +11,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\BooleanColumn;
 use App\Filament\Resources\CommentResource\Pages;
-use App\Filament\Resources\CommentResource\RelationManagers;
-use App\Filament\Resources\CommentResource\Pages\EditComment;
-use App\Filament\Resources\CommentResource\Pages\ListComments;
-use App\Filament\Resources\CommentResource\Pages\CreateComment;
+
 
 class CommentResource extends Resource
 {

@@ -25,7 +25,7 @@ class NavController extends Controller
         $response = Http::get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Empyrium666&api_key=47c0277d61bf5ad17c56fc542f0e0762&format=json&limit=10")->json();
         //dd($response);
         $response = $response["recenttracks"]["track"];
-        
+        //dd($response);
         return view('index', compact('posts', 'response'))->with(request()->input('page'));
     }
 
@@ -88,27 +88,27 @@ class NavController extends Controller
 
     public function black()
     {
-        $posts = Post::where('genre','like','Black Metal')->simplePaginate(6);
+        $posts = Post::where('genre','like','Black Metal')->orderBy('created_at','DESC')->simplePaginate(6);
 
         return view('black', compact('posts'));
     }
 
     public function death()
     {
-        $posts = Post::where('genre','like','Death Metal')->simplePaginate(6);
+        $posts = Post::where('genre','like','Death Metal')->orderBy('created_at','DESC')->simplePaginate(6);
 
         return view('death', compact('posts'));
     }
 
     public function doom()
     {
-        $posts = Post::where('genre','=','Doom Metal')->simplepaginate(6);
+        $posts = Post::where('genre','=','Doom Metal')->orderBy('created_at','DESC')->simplepaginate(6);
         return view('doom', compact('posts'));
     }
 
     public function autre()
     {
-        $posts = Post::where('genre','=','Autre')->simplepaginate(6);
+        $posts = Post::where('genre','=','Autre')->orderBy('created_at','DESC')->simplepaginate(6);
         return view('autre', compact('posts'));
     }
 

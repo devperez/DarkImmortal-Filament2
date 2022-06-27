@@ -11,7 +11,6 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use App\Filament\Resources\PlaylistResource\Pages;
-use App\Filament\Resources\PlaylistResource\RelationManagers;
 
 class PlaylistResource extends Resource
 {
