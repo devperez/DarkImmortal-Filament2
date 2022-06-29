@@ -19,4 +19,9 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class);
+    }
 }

@@ -45,7 +45,7 @@ class PostResource extends Resource
                 Forms\Components\TextInput::make('pays'),
                 RichEditor::make('paroles'),
                 Forms\Components\TextInput::make('clip'),
-                Toggle::make('draft')->label('Publier ?'),
+                Toggle::make('draft')->label('Cliquer pour publier'),
             ]);
     }
 
