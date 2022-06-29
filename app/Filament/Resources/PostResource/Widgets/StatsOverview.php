@@ -14,9 +14,9 @@ class StatsOverview extends BaseWidget
     protected function getCards(): array
     {
         return [ 
-            Card::make("Nombre d'articles", Post::count()),
-            Card::make('Nombre de commentaires', Comment::count()),
-            Card::make('Nombre de playlists', Playlist::count()),
+            //Card::make("Nombre d'articles", Post::count()),
+            // Card::make('Nombre de commentaires', Comment::count()),
+            // Card::make('Nombre de playlists', Playlist::count()),
         ];
     }
 }
