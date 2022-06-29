@@ -9,12 +9,4 @@ use App\Filament\Resources\PostResource\Widgets\StatsOverview;
 class ListPosts extends ListRecords
 {
     protected static string $resource = PostResource::class;
-    
-    
-    protected function getHeaderWidgets(): array
-    {
-        return [
-            StatsOverview::class,
-        ];
-    }
 }

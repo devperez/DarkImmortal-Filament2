@@ -16,7 +16,6 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Tables\Filters\SelectFilter;
 use App\Filament\Resources\PostResource\Pages;
-use App\Filament\Resources\PostResource\Widgets\StatsOverview;
 
 class PostResource extends Resource
 {
@@ -88,10 +87,4 @@ class PostResource extends Resource
         ];
     }
 
-    // public static function getWidgets(): array
-    // {
-    //     return [
-    //         StatsOverview::class,
-    //     ];
-    // }
 }
