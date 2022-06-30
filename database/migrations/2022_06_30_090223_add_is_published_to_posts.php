@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->foreignId('genre_id')->constrained()->onDelete('cascade');
+            $table->boolean('is_published');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('genre_id');
+            $table->dropColumn('is_published');
         });
     }
 };

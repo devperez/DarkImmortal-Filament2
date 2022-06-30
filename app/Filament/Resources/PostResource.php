@@ -45,7 +45,7 @@ class PostResource extends Resource
                 Forms\Components\TextInput::make('pays'),
                 RichEditor::make('paroles'),
                 Forms\Components\TextInput::make('clip'),
-                Toggle::make('draft')->label('Cliquer pour publier'),
+                Toggle::make('is_published')->label('Cliquer pour publier'),
             ]);
     }
 
@@ -60,7 +60,7 @@ class PostResource extends Resource
                 Tables\Columns\BooleanColumn::make('comments.post')->label('Commentaire'),
                 Tables\Columns\TextColumn::make('album')->searchable(),
                 Tables\Columns\TextColumn::make('genre')->label('Genre'),
-                Tables\Columns\BooleanColumn::make('draft')->label('Publié'),
+                Tables\Columns\BooleanColumn::make('is_published')->label('Publié'),
             ])
             ->defaultSort('created_at', 'desc')
             ->filters([
