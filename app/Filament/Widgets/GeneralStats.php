@@ -10,6 +10,8 @@ use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 
 class GeneralStats extends BaseWidget
 {
+    protected static ?int $sort = 1;
+
     protected function getCards(): array
     {
         return [

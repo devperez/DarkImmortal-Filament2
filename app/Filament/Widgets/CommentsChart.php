@@ -2,21 +2,20 @@
 
 namespace App\Filament\Widgets;
 
-use App\Models\Post;
+use App\Models\Comment;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
 use Filament\Widgets\LineChartWidget;
 
-class PostsChart extends LineChartWidget
+class CommentsChart extends LineChartWidget
 {
-    protected static ?string $heading = 'Publications';
+    protected static ?string $heading = 'Commentaires';
     protected static ?string $pollingInterval = null;
     protected static ?int $sort = 2;
 
-
     protected function getData(): array
 {
-    $data = Trend::model(Post::class)
+    $data = Trend::model(Comment::class)
         ->between(
             start: now()->startOfYear(),
             end: now(),
@@ -27,7 +26,7 @@ class PostsChart extends LineChartWidget
     return [
         'datasets' => [
             [
-                'label' => 'Publications',
+                'label' => 'Commentaires',
                 'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
             ],
         ],
@@ -35,4 +34,3 @@ class PostsChart extends LineChartWidget
     ];
 }
 }
-
